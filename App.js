@@ -14,6 +14,7 @@ export default function App() {
       <Stack.Navigator initialRouteName="Login">
         <Stack.Screen name="Login" component={TelaLogin} />
         <Stack.Screen name="Usuario" component={TelaUsuario} />
+        <Stack.Screen name="Serviços" component={TelaServiços} />
       </Stack.Navigator>
     </NavigationContainer>
   );
