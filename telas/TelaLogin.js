@@ -10,7 +10,7 @@ export default function TelaLogin({ navigation }) {
     const handleLogin = () => {
         console.log('Login com:', email, senha);
 
-        navigation.navigate('Inicio');
+        navigation.navigate('Principal');
     }
     return (
         <View style={styles.container}>
@@ -28,7 +28,7 @@ export default function TelaLogin({ navigation }) {
                 value={senha}
                 onChangeText={setSenha}
             />
-            <Botao texto="Entrar" onPress={() => navigation.navigate('Inicio')} />
+            <Botao texto="Entrar" onPress={handleLogin} />
         </View>
     );
 }
