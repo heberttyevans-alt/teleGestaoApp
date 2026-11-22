@@ -10,7 +10,7 @@ export default function TelaLogin({ navigation }) {
     const handleLogin = () => {
         console.log('Login com:', email, senha);
 
-        navigation.navigate('Servicos');
+        navigation.navigate('Inicio');
     }
     return (
         <View style={styles.container}>
@@ -28,7 +28,7 @@ export default function TelaLogin({ navigation }) {
                 value={senha}
                 onChangeText={setSenha}
             />
-            <Botao texto="Entrar" onPress={() => navigation.navigate('Servicos')} />
+            <Botao texto="Entrar" onPress={() => navigation.navigate('Inicio')} />
         </View>
     );
 }
@@ -39,13 +39,14 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         padding: 24,
-        backgroundColor: '#f5f5f5',
+        backgroundColor: COLORS.primaryDark,
     },
     titulo: {
+        fontFamily: 'Poppins_700Bold',
         fontSize: 22,
         fontWeight: 'bold',
         marginBottom: 24,
-        color: '#333',
+        color: COLORS.textSecondary,
     },
     logo: {
         width: 300,
@@ -55,7 +56,7 @@ const styles = StyleSheet.create({
     input: {
         width: '100%',
         height: 48,
-        borderRadius: 8,
+        borderRadius: SIZES.radius,
         paddingHorizontal: 16,
         marginBottom: 16,
         borderWidth: 1,

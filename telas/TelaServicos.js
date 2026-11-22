@@ -1,4 +1,7 @@
 import { View, Text, StyleSheet } from 'react-native';
+import { COLORS, SIZES } from '../constants/theme';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
 
 export default function TelaServicos({ navigation }) {
     return (
@@ -13,10 +16,10 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#fff',
+        backgroundColor: COLORS.background,
     },
     texto: {
-        fontSize: 18,
+        fontSize: SIZES.title,
         color: '#333',
     },
 });
