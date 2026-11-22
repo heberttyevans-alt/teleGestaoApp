@@ -1,4 +1,5 @@
 import { Pressable, Text, StyleSheet } from "react-native";
+import { COLORS, SIZES } from "../constants/theme";
 
 export default function Botao({ onPress, texto }) {
     return (
@@ -16,10 +17,10 @@ export default function Botao({ onPress, texto }) {
 
 const styles = StyleSheet.create({
     botao: {
-        backgroundColor: '#007AFF',
-        paddingVertical: 14,
-        paddingHorizontal: 32,
-        borderRadius: 8,
+        backgroundColor: COLORS.primary,
+        paddingVertical: SIZES.padding,
+        paddingHorizontal: SIZES.padding,
+        borderRadius: SIZES.radius,
         alignItems: 'center',
         justifyContent: 'center',
         elevation: 2,

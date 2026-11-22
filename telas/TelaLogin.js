@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TextInput, Image } from 'react-native';
 import Botao from '../components/Botao';
+import { COLORS, SIZES } from '../constants/theme';
 
 export default function TelaLogin({ navigation }) {
     const { email, setEmail } = useState('');
