@@ -107,7 +107,7 @@ export default function TelaUsuario({ navigation }) {
                         {foto ? (
                             <Image source={{ uri: foto }} style={styles.avatarImagem} />
                         ) : (
-                            <Text style={styles.avatarTexto}>HS</Text>
+                            <Text style={styles.avatarTexto}>HL</Text>
                         )}
                     </View>
                     <TouchableOpacity
