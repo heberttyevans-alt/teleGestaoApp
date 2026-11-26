@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { COLORS, SIZES } from '../constants/theme';
-export default function CardOS({ ordem, onPress }) {
 
+export default function CardOS({ ordem, onPress }) {
     const obterEstiloStatus = (status) => {
         switch (status) {
             case 'aberto':
@@ -36,7 +36,7 @@ export default function CardOS({ ordem, onPress }) {
         }
     };
 
-    const estiloStatus = obterEstiloStatus(ordem.Status);
+    const estiloStatus = obterEstiloStatus(ordem.status);
 
     return (
         <TouchableOpacity
@@ -46,7 +46,7 @@ export default function CardOS({ ordem, onPress }) {
         >
             <View style={styles.topoCard}>
                 <Text style={styles.numeroOS}>OS #{ordem.numero}</Text>
-                <View style={[styles.badge, { backgroundColor: estiloStatus.Status.corFundo }]}>
+                <View style={[styles.badge, { backgroundColor: estiloStatus.corFundo }]}>
                     <Text style={[styles.badgeTexto, { color: estiloStatus.corTexto }]}>
                         {estiloStatus.rotulo}
                     </Text>
@@ -57,8 +57,8 @@ export default function CardOS({ ordem, onPress }) {
                 👤 {ordem.cliente}
             </Text>
 
-            <Text style={styles.servico} numerOfLines={2}>
-                🛠️ {ordem.serico}
+            <Text style={styles.servico} numberOfLines={2}>
+                🛠️ {ordem.servico}
             </Text>
 
             <View style={styles.rodapeCard}>

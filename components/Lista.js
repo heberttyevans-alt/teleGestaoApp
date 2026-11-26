@@ -1,29 +1,30 @@
 import React from 'react';
-import { View, Text, StyleSheet, FlatList } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import CardOS from './CardOS';
 import { COLORS } from '../constants/theme';
 
 export default function Lista({ dados, onSelectOS, mensagemVazia = "Nenhuma ordem de serviço encontrada." }) {
+    // Se a lista estiver vazia, exibe mensagem amigável
+    if (!dados || dados.length === 0) {
+        return (
+            <View style={styles.vazioContainer}>
+                <Text style={styles.vazioIcone}>📭</Text>
+                <Text style={styles.vazioTexto}>{mensagemVazia}</Text>
+            </View>
+        );
+    }
+
+    // Renderiza os cartões diretamente dentro da sanfona sem o aviso de VirtualizedList
     return (
-        <FlatList
-            data={dados}
-            keyExtractor={(item) => String(item.id || item.numero)}
-            renderItem={({ item }) => (
+        <View style={styles.listaContainer}>
+            {dados.map((item) => (
                 <CardOS
+                    key={String(item.id || item.numero)}
                     ordem={item}
                     onPress={() => onSelectOS(item)}
                 />
-            )}
-            contentContainerStyle={styles.listaContainer}
-            showsVerticalScrollIndicator={false}
-
-            ListEmptyComponent={() => (
-                <View style={styles.vazioContainer}>
-                    <Text style={styles.vazioIcone}>📭</Text>
-                    <Text style={styles.vazioTexto}>{mensagemVazia}</Text>
-                </View>
-            )}
-        />
+            ))}
+        </View>
     );
 }
 
