@@ -16,7 +16,7 @@ export default function Lista({ dados, onSelectOS, mensagemVazia = "Nenhuma orde
             )}
             contentContainerStyle={styles.listaContainer}
             showsVerticalScrollIndicator={false}
-            // Exibido automaticamente se a lista de dados estiver vazia
+
             ListEmptyComponent={() => (
                 <View style={styles.vazioContainer}>
                     <Text style={styles.vazioIcone}>📭</Text>
