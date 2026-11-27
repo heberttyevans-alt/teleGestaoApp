@@ -1,7 +1,7 @@
-import { Pressable, Text, StyleSheet } from "react-native";
+import { Pressable, Text, StyleSheet, ActivityIndicator } from "react-native";
 import { COLORS, SIZES } from "../constants/theme";
 
-export default function Botao({ onPress, texto }) {
+export default function Botao({ onPress, texto, carregando = false }) {
     return (
         <Pressable
             style={({ pressed }) => [
@@ -9,8 +9,11 @@ export default function Botao({ onPress, texto }) {
                 pressed && styles.botaoPressionado
             ]}
             onPress={onPress}
+            disabaled={carregando}
         >
-            <Text style={styles.texto}>{texto}</Text>
+            {carregando ? (<ActivityIndicator size="small" color="#FFFFFF" />) : (
+                <Text style={styles.texto}>{texto}</Text>
+            )}
         </Pressable>
     );
 }
@@ -20,6 +23,7 @@ const styles = StyleSheet.create({
         backgroundColor: COLORS.primary,
         paddingVertical: SIZES.padding,
         paddingHorizontal: SIZES.padding,
+        minWidth: 150,
         borderRadius: SIZES.radius,
         alignItems: 'center',
         justifyContent: 'center',
