@@ -4,14 +4,23 @@ import Botao from '../components/Botao';
 import { COLORS, SIZES } from '../constants/theme';
 
 export default function TelaLogin({ navigation }) {
-    const { email, setEmail } = useState('');
-    const { senha, setSenha } = useState('');
+    const [email, setEmail] = useState('');
+    const [senha, setSenha] = useState('');
+    const [carregando, setCarregando] = useState(false);
 
-    const handleLogin = () => {
-        console.log('Login com:', email, senha);
+    const handleLogin = async () => {
+        setCarregando(true);
 
-        navigation.navigate('Principal');
-    }
+        try {
+            console.log('Login com:', email, senha);
+
+            await new Promise((resolve) => setTimeout(resolve, 1500));
+
+            navigation.navigate('Principal');
+        } finally {
+            setCarregando(false);
+        }
+    };
     return (
         <View style={styles.container}>
             <Text style={styles.titulo}>Bem-vindo ao</Text>
@@ -22,13 +31,15 @@ export default function TelaLogin({ navigation }) {
                 autoCapitalize='none'
                 value={email}
                 onChangeText={setEmail}
+                editable={!carregando}
             />
             <TextInput style={styles.input} placeholder='Digite sua senha' placeholderTextColor={'#999'}
                 secureTextEntry
                 value={senha}
                 onChangeText={setSenha}
+                editable={!carregando}
             />
-            <Botao texto="Entrar" onPress={handleLogin} />
+            <Botao texto="Entrar" onPress={handleLogin} carregando={carregando} />
         </View>
     );
 }
